@@ -1,12 +1,28 @@
 from tkinter import *
+import random
+
+#tkinter window settings
 window = Tk()
 
 window.title("숫자 야구")
 window.geometry("640x500")
 window.resizable(False, False)
 
+#defenition: function for making a new set of number to guess
+def newnumber():
+    answernumber = list()
+    for i in range(0,4):
+        inputrandnumber = random.randint(0, 9)
+    answernumber.append(inputrandnumber)
+'''
+def numbercheck():
+    for h in range(0, 4):
+        '''
+
+
 numlist = list()
 
+#defenition: functions for typing numbers
 def type_1():
     numlist.append(1)
 def type_2():
