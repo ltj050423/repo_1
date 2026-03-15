@@ -8,21 +8,74 @@ window.title("숫자 야구")
 window.geometry("640x500")
 window.resizable(False, False)
 
+answernumber = []
+print(answernumber)
+strike_count = 0
+ball_count = 0
+out_count = 0
+
 #defenition: function for making a new set of number to guess
+#새로운 4개 숫자 리스트를 만든다
 def newnumber():
-    answernumber = list()
+    global answernumber
+    answernumber = []
     for i in range(0,4):
         inputrandnumber = random.randint(0, 9)
-    answernumber.append(inputrandnumber)
-'''
+        answernumber.append(inputrandnumber)
+    strike_count = 0
+    out_count = 0
+    ball_count = 0
+
 def numbercheck():
-    for h in range(0, 4):
-        '''
-
-
+    #첫번째 숫자와 나머지 숫자를 비교.
+    if numlist[0] == answernumber[0]:
+        strike_count += 1
+    elif numlist[0] == answernumber[1]:
+        ball_count += 1
+    elif numlist[0] == answernumber[2]:
+        ball_count += 1
+    elif numlist[0] == answernumber[3]:
+        ball_count += 1
+    else:
+        out_count += 1
+    #두번째 숫자와 나머지...
+    if numlist[1] == answernumber[0]:
+        ball_count += 1
+    elif numlist[1] == answernumber[1]:
+        strike_count += 1
+    elif numlist[1] == answernumber[2]:
+        ball_count += 1
+    elif numlist[1] == answernumber[3]:
+        ball_count += 1
+    else:
+        out_count += 1
+    #세번째
+    if numlist[2] == answernumber[0]:
+        ball_count += 1
+    elif numlist[2] == answernumber[1]:
+        ball_count += 1
+    elif numlist[2] == answernumber[2]:
+        strike_count += 1
+    elif numlist[2] == answernumber[3]:
+        ball_count += 1
+    else:
+        out_count += 1
+    #네번째
+    if numlist[3] == answernumber[0]:
+        ball_count += 1
+    elif numlist[3] == answernumber[1]:
+        ball_count += 1
+    elif numlist[3] == answernumber[2]:
+        ball_count += 1
+    elif numlist[3] == answernumber[3]:
+        strike_count += 1
+    else:
+        out_count += 1
+ 
 numlist = list()
 
-#defenition: functions for typing numbers
+#defenition: functions for typing numbers 1~0까지 숫자를 하나씩 추가한다
+
 def type_1():
     numlist.append(1)
 def type_2():
@@ -62,7 +115,19 @@ testprintbutton = Button(window, text= "testprint", command=testprint)
 testprintbutton.place(x = 200, y = 50)
 
 
+#debug mode below
+#----------------------------------------------------------
+def debug_show_answer():
+    print(answernumber)
 
+debug_show_answernumber = Button(window, text= "debug_showanswer", command= debug_show_answer)
+debug_show_answernumber.place(x = 50, y = 450)
+
+def debug_generate_answer():
+    newnumber()
+debug_generate_answer_button = Button(window, text="debug_generate new number", command= newnumber)
+debug_generate_answer_button.place(x = 50, y = 400)
+#------------------------------------------------------------
 
 b1.place(x = 300, y=300)
 b2.place(x = 330, y=300)
@@ -74,5 +139,7 @@ b7.place(x = 300, y=360)
 b8.place(x = 330, y=360)
 b9.place(x = 360, y=360)
 b0.place(x = 330, y=390)
+
+
 
 window.mainloop()
