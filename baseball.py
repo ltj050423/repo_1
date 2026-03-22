@@ -114,6 +114,20 @@ def testprint():
 testprintbutton = Button(window, text= "testprint", command=testprint)
 testprintbutton.place(x = 200, y = 50)
 
+#labels
+#--------------------
+try_1 = Label(window, text = "_ _ _ _")
+try_2 = Label(window, text = "_ _ _ _")
+try_3 = Label(window, text = "_ _ _ _")
+try_4 = Label(window, text = "_ _ _ _")
+try_5 = Label(window, text = "_ _ _ _")
+try_6 = Label(window, text = "_ _ _ _")
+try_7 = Label(window, text = "_ _ _ _")
+try_8 = Label(window, text = "_ _ _ _")
+try_9 = Label(window, text = "_ _ _ _")
+
+try_1.place(x= 320, y= 50)
+
 
 #debug mode below
 #----------------------------------------------------------
